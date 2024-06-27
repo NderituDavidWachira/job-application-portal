@@ -1,0 +1,16 @@
+.employee-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+}
+
+.employee-item img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}

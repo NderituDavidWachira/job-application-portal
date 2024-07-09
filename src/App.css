@@ -13,14 +13,14 @@ header {
 }
 
 main {
-  padding: 20px;
+  padding: 70px;
 }
 
 footer {
   background-color: #4CAF50;
   color: white;
   text-align: center;
-  padding: 1em 0;
+  padding: 0px;
   position: fixed;
   bottom: 0;
   width: 100%;

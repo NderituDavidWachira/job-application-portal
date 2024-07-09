@@ -14,3 +14,22 @@
     width: 100px;
     height: 100px;
 }
+
+.employee-detail {
+    text-align: center;
+}
+
+.employee-img {
+    border-radius: 50px;
+    width: 250px; 
+    height: 250px; 
+}
+
+.employee-detail ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.employee-detail li {
+    margin: 5px 0;
+}

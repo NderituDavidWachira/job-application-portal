@@ -73,7 +73,7 @@ const EmployeeDetail = () => {
             <p>Position: {employee.position}</p>
             <p>Department: {employee.department}</p>
             <h3>Available People:</h3>
-            <ul>
+            <ul className="people-list">
                 {employee.people.map((person, index) => (
                     <li key={index} className="person-item">
                         <img src={person.img} alt={person.name} className="person-img" />

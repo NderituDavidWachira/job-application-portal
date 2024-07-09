@@ -1,7 +1,6 @@
 /* General styling for the employee detail container */
 .employee-detail {
     max-width: 100%;
-    margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -18,9 +17,12 @@
 
 /* Styling for the employee image */
 .employee-detail .employee-img {
+    display: block;
+    margin: 0 auto 20px;
+    width: 150px; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    object-fit: cover; /* Ensures the image covers the entire space */
 }
 
 /* Styling for the position and department paragraphs */
@@ -41,12 +43,12 @@
 .people-list {
     list-style-type: none;
     padding: 0;
-    width: 100%;
 }
 
 /* Styling for each person in the list */
 .people-list .person-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -59,17 +61,18 @@
 /* Styling for the person's image */
 .people-list .person-img {
     width: 100px;
+    height: 100px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 /* Styling for the person's details */
 .people-list .person-details {
-    flex-grow: 1;
+    text-align: center;
 }
 
 .people-list .person-details h4 {
-    margin: 0 0 10px;
+    margin: 0 0 5px;
     font-size: 1.2em;
     color: #333;
 }
@@ -79,6 +82,24 @@
     font-size: 1em;
     color: #555;
 }
+
+@media (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .employee-detail .employee-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .people-list .person-item {
+        padding: 10px;
+    }
+    
+    .people-list .person-img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
 
 /* Styling for individual employee items */
 .employee-item {

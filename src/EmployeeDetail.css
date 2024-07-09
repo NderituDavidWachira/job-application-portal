@@ -33,3 +33,148 @@
 .employee-detail li {
     margin: 5px 0;
 }
+
+/* Styling for the employee name heading */
+.employee-detail h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for the employee image */
+.employee-detail .employee-img {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+/* Styling for the position and department paragraphs */
+.employee-detail p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Styling for the available people section */
+.employee-detail h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for the list of people */
+.employee-detail ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styling for each person in the list */
+.employee-detail ul li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.employee-detail ul li h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.employee-detail ul li p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+/* General styling for the employee detail container */
+.employee-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the employee name heading */
+.employee-detail h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for the employee image */
+.employee-detail .employee-img {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+/* Styling for the position and department paragraphs */
+.employee-detail p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Styling for the available people section */
+.employee-detail h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for the list of people */
+.employee-detail ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styling for each person in the list */
+.employee-detail ul li.person-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the person's image */
+.employee-detail ul li.person-item .person-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* Styling for the person's details */
+.employee-detail ul li.person-item .person-details {
+    flex-grow: 1;
+}
+
+.employee-detail ul li.person-item .person-details h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.employee-detail ul li.person-item .person-details p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+}

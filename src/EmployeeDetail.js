@@ -85,6 +85,15 @@ const EmployeeDetail = () => {
                             <p>Hired Times: {person.hiredTimes}</p>
                             <p>Comments: {person.comments}</p>
                         </div>
+                        <button 
+                            onClick={() => {
+                                const paymentUrl = `https://payment-portal.com/pay?paybill=123456&account=${person.name}`;
+                                window.open(paymentUrl, '_blank');
+                            }}
+                            className="book-now-button"
+                        >
+                            Book Now
+                        </button>
                     </li>
                 ))}
             </ul>
@@ -92,4 +101,4 @@ const EmployeeDetail = () => {
     );
 };
 
-export { EmployeeDetail };
+export default EmployeeDetail;

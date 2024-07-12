@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './App.css';
-import { EmployeeDetail } from './EmployeeDetail';
+import  EmployeeDetail  from './EmployeeDetail';
 import EmployeeList from './EmployeeList';
+
 
 const employees = [
     { name: 'Mama Fua', img: '/images/mama fua.jpg', position: 'Cleaner', department: 'Household' },

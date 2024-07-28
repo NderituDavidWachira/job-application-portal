@@ -72,7 +72,7 @@ const EmployeeDetail = () => {
             <img src={employee.img} alt={employee.name} className="employee-img" />
             <p>Position: {employee.position}</p>
             <p>Department: {employee.department}</p>
-            <h3>Available People:</h3>
+            <h3>Available Employee:</h3>
             <ul className="people-list">
                 {employee.people.map((person, index) => (
                     <li key={index} className="person-item">
@@ -87,7 +87,7 @@ const EmployeeDetail = () => {
                         </div>
                         <button 
                             onClick={() => {
-                                const paymentUrl = `https://payment-portal.com/pay?paybill=123456&account=${person.name}`;
+                                const paymentUrl = ``;
                                 window.open(paymentUrl, '_blank');
                             }}
                             className="book-now-button"

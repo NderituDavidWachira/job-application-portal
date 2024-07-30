@@ -87,8 +87,6 @@ const EmployeeDetail = () => {
                         </div>
                         <button 
                             onClick={() => {
-                                const paymentUrl = ``;
-                                window.open(paymentUrl, '_blank');
                             }}
                             className="book-now-button"
                         >

@@ -88,6 +88,7 @@ const EmployeeDetail = () => {
                         <button 
                             onClick={() => {
                             }}
+                           
                             className="book-now-button"
                         >
                             Book Now

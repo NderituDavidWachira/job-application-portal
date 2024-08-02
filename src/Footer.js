@@ -11,7 +11,7 @@ const Footer = () => {
                     <FaWhatsapp /> WhatsApp for any help
                 </a>
             </p>
-            <p>Contact: 0758293706</p>
+            <p>Contact: +254758293706</p>
             
         </footer>
     );

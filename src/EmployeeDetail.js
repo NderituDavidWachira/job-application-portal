@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Modal from 'react-modal';
 import './EmployeeDetail.css';
+
+Modal.setAppElement('#root'); //required for accessibility reasons, to prevent screen readers from reading background content when the modal is open.
 
 const EmployeeDetail = () => {
     const { name } = useParams();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedPerson, setSelectedPerson] = useState(null);//Stores the data of the person being booked.
+    const [mpesaNumber, setMpesaNumber] = useState('');
+    const [amount, setAmount] = useState('');
+    const [pin, setPin] = useState('');
 
     const [employees] = useState([
         {
@@ -67,16 +75,21 @@ const EmployeeDetail = () => {
     }
 
     const handleBookNow = (person) => {
-        const mpesaNumber = prompt("Enter your M-Pesa number:");
-        const amount = prompt("Enter the amount:");
-        const pin = prompt("Enter your M-Pesa PIN:");
-        
+        setSelectedPerson(person);
+        setIsModalOpen(true);
+    };
+
+    const handlePayment = () => {
         if (mpesaNumber && amount && pin) {
             // Mock payment processing
-            alert(`Payment of ${amount} for booking ${person.name} has been processed successfully.`);
+            alert(`Payment of ${amount} for booking ${selectedPerson.name} has been processed successfully.`);
             // Here, you would typically call a backend service to process the payment
+            setIsModalOpen(false);
+            setMpesaNumber('');
+            setAmount('');
+            setPin('');
         } else {
-            alert("Payment failed. Please enter correct the details.");
+            alert("Payment failed. Please enter all the details correctly.");
         }
     };
 
@@ -86,7 +99,7 @@ const EmployeeDetail = () => {
             <img src={employee.img} alt={employee.name} className="employee-img" />
             <p>Position: {employee.position}</p>
             <p>Department: {employee.department}</p>
-            <h3>Available Employee:</h3>
+            <h3>Available Employees:</h3>
             <ul className="people-list">
                 {employee.people.map((person, index) => (
                     <li key={index} className="person-item">
@@ -108,6 +121,55 @@ const EmployeeDetail = () => {
                     </li>
                 ))}
             </ul>
+
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={() => setIsModalOpen(false)}
+                style={{
+                    content: {
+                        top: '50%',
+                        left: '50%',
+                        right: 'auto',
+                        bottom: 'auto',
+                        marginRight: '-50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '80%',
+                        maxWidth: '500px',
+                        padding: '20px',
+                    },
+                    overlay: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                    },
+                }}
+            >
+                <h2>Complete Payment</h2>
+                <div>
+                    <label>M-Pesa Number:</label>
+                    <input 
+                        type="text" 
+                        value={mpesaNumber} 
+                        onChange={(e) => setMpesaNumber(e.target.value)} 
+                    />
+                </div>
+                <div>
+                    <label>Amount:</label>
+                    <input 
+                        type="text" 
+                        value={amount} 
+                        onChange={(e) => setAmount(e.target.value)} 
+                    />
+                </div>
+                <div>
+                    <label>M-Pesa PIN:</label>
+                    <input 
+                        type="password" 
+                        value={pin} 
+                        onChange={(e) => setPin(e.target.value)} 
+                    />
+                </div>
+                <button onClick={handlePayment}>Confirm Payment</button>
+                <button onClick={() => setIsModalOpen(false)}>Cancel</button>
+            </Modal>
         </div>
     );
 };

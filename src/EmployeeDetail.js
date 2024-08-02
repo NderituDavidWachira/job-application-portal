@@ -66,6 +66,20 @@ const EmployeeDetail = () => {
         return <div>Employee not found</div>;
     }
 
+    const handleBookNow = (person) => {
+        const mpesaNumber = prompt("Enter your M-Pesa number:");
+        const amount = prompt("Enter the amount:");
+        const pin = prompt("Enter your M-Pesa PIN:");
+        
+        if (mpesaNumber && amount && pin) {
+            // Mock payment processing
+            alert(`Payment of ${amount} for booking ${person.name} has been processed successfully.`);
+            // Here, you would typically call a backend service to process the payment
+        } else {
+            alert("Payment failed. Please enter correct the details.");
+        }
+    };
+
     return (
         <div className="employee-detail">
             <h2>{employee.name}</h2>
@@ -86,9 +100,7 @@ const EmployeeDetail = () => {
                             <p>Comments: {person.comments}</p>
                         </div>
                         <button 
-                            onClick={() => {
-                            }}
-                           
+                            onClick={() => handleBookNow(person)}
                             className="book-now-button"
                         >
                             Book Now

@@ -1,0 +1,14 @@
+.header {
+    background: linear-gradient(to bottom right, #87CEFA, #FFD700); /* Sky blue to gold gradient */
+    color: #fff; 
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.header-title {
+    font-size: 2em;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+}

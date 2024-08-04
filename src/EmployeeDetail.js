@@ -176,7 +176,7 @@ const EmployeeDetail = () => {
                         </a>
                     </p>
                     <p>
-                        <a href="https://wa.me/+254796950608" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/+254758293706" target="_blank" rel="noopener noreferrer">
                             <FaWhatsapp /> WhatsApp for delivery services after payment
                         </a>
                     </p>

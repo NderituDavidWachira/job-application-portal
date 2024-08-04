@@ -135,3 +135,92 @@
     background-color: #4CAF50;
     color: white;
 }
+.employee-detail {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.employee-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.people-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.person-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.person-img {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.person-details {
+    flex-grow: 1;
+}
+
+.book-now-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.book-now-button:hover {
+    background-color: #218838;
+}
+
+.modal-content {
+    margin-bottom: 15px;
+}
+
+.confirm-button, .cancel-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.confirm-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.whatsapp-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.whatsapp-links a {
+    color: #25d366;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.whatsapp-links a:hover {
+    text-decoration: underline;
+}

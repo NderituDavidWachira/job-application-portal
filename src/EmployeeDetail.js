@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Modal from 'react-modal';
+import { FaWhatsapp } from 'react-icons/fa';
 import './EmployeeDetail.css';
 
-Modal.setAppElement('#root'); //required for accessibility reasons, to prevent screen readers from reading background content when the modal is open.
+Modal.setAppElement('#root'); // Required for accessibility
 
 const EmployeeDetail = () => {
     const { name } = useParams();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedPerson, setSelectedPerson] = useState(null);//Stores the data of the person being booked.
+    const [selectedPerson, setSelectedPerson] = useState(null);
     const [mpesaNumber, setMpesaNumber] = useState('');
     const [amount, setAmount] = useState('');
     const [pin, setPin] = useState('');
@@ -65,7 +66,7 @@ const EmployeeDetail = () => {
                     img: '/images/cate.webp'
                 }
             ]
-        },
+        }
     ]);
 
     const employee = employees.find(emp => emp.name === decodeURIComponent(name));
@@ -81,9 +82,8 @@ const EmployeeDetail = () => {
 
     const handlePayment = () => {
         if (mpesaNumber && amount && pin) {
-            // Mock payment processing
             alert(`Payment of ${amount} for booking ${selectedPerson.name} has been processed successfully.`);
-            // Here, you would typically call a backend service to process the payment
+            // Typically, you would call a backend service to process the payment
             setIsModalOpen(false);
             setMpesaNumber('');
             setAmount('');
@@ -143,7 +143,7 @@ const EmployeeDetail = () => {
                 }}
             >
                 <h2>Complete Payment</h2>
-                <div>
+                <div className="modal-content">
                     <label>M-Pesa Number:</label>
                     <input 
                         type="text" 
@@ -151,7 +151,7 @@ const EmployeeDetail = () => {
                         onChange={(e) => setMpesaNumber(e.target.value)} 
                     />
                 </div>
-                <div>
+                <div className="modal-content">
                     <label>Amount:</label>
                     <input 
                         type="text" 
@@ -159,7 +159,7 @@ const EmployeeDetail = () => {
                         onChange={(e) => setAmount(e.target.value)} 
                     />
                 </div>
-                <div>
+                <div className="modal-content">
                     <label>M-Pesa PIN:</label>
                     <input 
                         type="password" 
@@ -167,8 +167,20 @@ const EmployeeDetail = () => {
                         onChange={(e) => setPin(e.target.value)} 
                     />
                 </div>
-                <button onClick={handlePayment}>Confirm Payment</button>
-                <button onClick={() => setIsModalOpen(false)}>Cancel</button>
+                <button className="confirm-button" onClick={handlePayment}>Confirm Payment</button>
+                <button className="cancel-button" onClick={() => setIsModalOpen(false)}>Cancel</button>
+                <div className="whatsapp-links">
+                    <p>
+                        <a href="https://wa.me/+254758293706" target="_blank" rel="noopener noreferrer">
+                            <FaWhatsapp /> WhatsApp for any clarification or cash payment
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://wa.me/+254758293706" target="_blank" rel="noopener noreferrer">
+                            <FaWhatsapp /> WhatsApp for delivery services after payment
+                        </a>
+                    </p>
+                </div>
             </Modal>
         </div>
     );

@@ -225,3 +225,19 @@
 .whatsapp-links a:hover {
     text-decoration: underline;
 }
+.call-button {
+    background-color: blue; 
+    color: white;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-top: 20px; 
+    display: block;
+    width: 100%; 
+    text-align: center; 
+}
+
+.call-button:hover {
+    background-color: darkblue; 
+}

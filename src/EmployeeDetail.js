@@ -115,7 +115,6 @@ const EmployeeDetail = () => {
             alert("Payment failed. Please enter all the details correctly.");
         }
     };
-    
 
     return (
         <div className="employee-detail">
@@ -166,6 +165,7 @@ const EmployeeDetail = () => {
                     },
                 }}
             >
+                <p>NOTE: Payment can be done before or after service. To book an employee and pay after, call or WhatsApp.</p>
                 <h2>Complete Payment</h2>
                 <div className="modal-content">
                     <label>M-Pesa Number:</label>
@@ -189,7 +189,7 @@ const EmployeeDetail = () => {
                 <div className="whatsapp-links">
                     <p>
                         <a href="https://wa.me/+254758293706" target="_blank" rel="noopener noreferrer">
-                            <FaWhatsapp /> WhatsApp for any clarification or cash payment
+                            <FaWhatsapp /> WhatsApp to book an employee and pay after service
                         </a>
                     </p>
                     <p>
@@ -198,6 +198,12 @@ const EmployeeDetail = () => {
                         </a>
                     </p>
                 </div>
+                <button 
+        onClick={() => window.open('tel:+254758293706')}
+        className="call-button"
+    >
+        Call Us Now
+    </button>
             </Modal>
         </div>
     );

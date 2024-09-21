@@ -6,9 +6,7 @@
     color: #fff; 
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0; /* Ensure there's no space below the header */
 }
-
 .header-title {
     font-size: 2em;
     margin: 0;

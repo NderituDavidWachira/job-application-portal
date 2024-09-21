@@ -1,0 +1,31 @@
+.contact {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.call-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745; /* Green background */
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.call-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.call-button:active {
+    background-color: #1e7e34; /* Even darker green when clicked */
+}

@@ -1,9 +1,12 @@
 .header {
-    background: linear-gradient(to bottom right, #87CEFA, #FFD700); /* Sky blue to gold gradient */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom right, #87CEFA, #FFD700);
     color: #fff; 
     padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0; /* Ensure there's no space below the header */
 }
 
 .header-title {
@@ -11,4 +14,52 @@
     margin: 0;
     font-family: 'Arial', sans-serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+    color: white;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: lightgray;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .header-title {
+        font-size: 1.5em; 
+    }
+
+    .nav {
+        flex-direction: column; 
+        gap: 10px;
+        margin-top: 10px; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-title {
+        font-size: 1.2em;
+    }
+
+    .nav {
+        gap: 5px;
+    }
+
+    .nav a {
+        font-size: 0.9em; 
+    }
 }

@@ -12,7 +12,6 @@ const EmployeeDetail = () => {
     const [selectedPerson, setSelectedPerson] = useState(null);
     const [mpesaNumber, setMpesaNumber] = useState('');
     const [amount, setAmount] = useState('');
-    const [pin, setPin] = useState('');
 
     const [employees] = useState([
         {
@@ -80,18 +79,43 @@ const EmployeeDetail = () => {
         setIsModalOpen(true);
     };
 
-    const handlePayment = () => {
-        if (mpesaNumber && amount && pin) {
-            alert(`Payment of ${amount} for booking ${selectedPerson.name} has been processed successfully.`);
-            // Typically, you would call a backend service to process the payment
-            setIsModalOpen(false);
-            setMpesaNumber('');
-            setAmount('');
-            setPin('');
+    const handlePayment = async () => {
+        if (mpesaNumber && amount) {
+            try {
+                const paymentData = {
+                    mpesaNumber: mpesaNumber,
+                    amount: amount,
+                    booking: selectedPerson.name
+                };
+    
+                const response = await fetch('https://your-backend-url.com/api/process-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer YOUR_SECURE_TOKEN',
+                    },
+                    body: JSON.stringify(paymentData),
+                });
+    
+                const result = await response.json();
+    
+                if (response.ok) {
+                    alert(`Payment of ${amount} for booking ${selectedPerson.name} has been processed successfully.`);
+                    setIsModalOpen(false);
+                    setMpesaNumber('');
+                    setAmount('');
+                } else {
+                    alert(`Payment failed: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Error processing payment:', error);
+                alert('Payment failed. Please try again.');
+            }
         } else {
             alert("Payment failed. Please enter all the details correctly.");
         }
     };
+    
 
     return (
         <div className="employee-detail">
@@ -159,14 +183,7 @@ const EmployeeDetail = () => {
                         onChange={(e) => setAmount(e.target.value)} 
                     />
                 </div>
-                <div className="modal-content">
-                    <label>M-Pesa PIN:</label>
-                    <input 
-                        type="password" 
-                        value={pin} 
-                        onChange={(e) => setPin(e.target.value)} 
-                    />
-                </div>
+            
                 <button className="confirm-button" onClick={handlePayment}>Confirm Payment</button>
                 <button className="cancel-button" onClick={() => setIsModalOpen(false)}>Cancel</button>
                 <div className="whatsapp-links">

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Modal from 'react-modal';
-import { FaWhatsapp } from 'react-icons/fa';
+import Modal from 'react-modal'
 import './EmployeeDetail.css';
+import ContactForm from './ContactForm';
+
 
 Modal.setAppElement('#root'); // Required for accessibility
 
@@ -10,8 +11,6 @@ const EmployeeDetail = () => {
     const { name } = useParams();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedPerson, setSelectedPerson] = useState(null);
-    const [mpesaNumber, setMpesaNumber] = useState('');
-    const [amount, setAmount] = useState('');
 
     const [employees] = useState([
         {
@@ -21,18 +20,18 @@ const EmployeeDetail = () => {
             department: 'Household',
             people: [
                 {
-                    name: 'Mercy',
-                    phoneNumber: '07 ',
-                    idNumber: '4056',
+                    name: 'Mercy-Mama Fua',
+                    phoneNumber: '0711384xxx ',
+                    idNumber: '4056xxxx',
                     location: 'Limuru',
                     hiredTimes: 5,
                     comments: 'Very reliable and professional.',
                     img: '/images/Mercy.jpg'
                 },
                 {
-                    name: 'Joy',
-                    phoneNumber: '07 ',
-                    idNumber: '39',
+                    name: 'Joy-Mama Fua',
+                    phoneNumber: '07896753xxx ',
+                    idNumber: '398332xxx',
                     location: 'Limuru',
                     hiredTimes: 3,
                     comments: 'Good worker, punctual.',
@@ -47,7 +46,7 @@ const EmployeeDetail = () => {
             department: 'Daycare',
             people: [
                 {
-                    name: 'Eunice Njeri',
+                    name: 'Eunice Njeri-Day Care',
                     phoneNumber: '07 ',
                     idNumber: '4056',
                     location: 'Limuru',
@@ -56,7 +55,7 @@ const EmployeeDetail = () => {
                     img: '/images/eunice.jpg'
                 },
                 {
-                    name: 'Cate Wairimu',
+                    name: 'Cate Wairimu-Day Care',
                     phoneNumber: '07 ',
                     idNumber: '39',
                     location: 'Limuru',
@@ -77,43 +76,6 @@ const EmployeeDetail = () => {
     const handleBookNow = (person) => {
         setSelectedPerson(person);
         setIsModalOpen(true);
-    };
-
-    const handlePayment = async () => {
-        if (mpesaNumber && amount) {
-            try {
-                const paymentData = {
-                    mpesaNumber: mpesaNumber,
-                    amount: amount,
-                    booking: selectedPerson.name
-                };
-    
-                const response = await fetch('https://your-backend-url.com/api/process-payment', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer YOUR_SECURE_TOKEN',
-                    },
-                    body: JSON.stringify(paymentData),
-                });
-    
-                const result = await response.json();
-    
-                if (response.ok) {
-                    alert(`Payment of ${amount} for booking ${selectedPerson.name} has been processed successfully.`);
-                    setIsModalOpen(false);
-                    setMpesaNumber('');
-                    setAmount('');
-                } else {
-                    alert(`Payment failed: ${result.message}`);
-                }
-            } catch (error) {
-                console.error('Error processing payment:', error);
-                alert('Payment failed. Please try again.');
-            }
-        } else {
-            alert("Payment failed. Please enter all the details correctly.");
-        }
     };
 
     return (
@@ -165,45 +127,9 @@ const EmployeeDetail = () => {
                     },
                 }}
             >
-                <p>NOTE: Payment can be done before or after service. To book an employee and pay after, call or WhatsApp.</p>
-                <h2>Complete Payment</h2>
-                <div className="modal-content">
-                    <label>M-Pesa Number:</label>
-                    <input 
-                        type="text" 
-                        value={mpesaNumber} 
-                        onChange={(e) => setMpesaNumber(e.target.value)} 
-                    />
-                </div>
-                <div className="modal-content">
-                    <label>Amount:</label>
-                    <input 
-                        type="text" 
-                        value={amount} 
-                        onChange={(e) => setAmount(e.target.value)} 
-                    />
-                </div>
-            
-                <button className="confirm-button" onClick={handlePayment}>Confirm Payment</button>
+                <h2>Book {selectedPerson?.name}</h2>
+                <ContactForm employeeName={selectedPerson?.name} />  {/* Pass the employee name as a prop */}
                 <button className="cancel-button" onClick={() => setIsModalOpen(false)}>Cancel</button>
-                <div className="whatsapp-links">
-                    <p>
-                        <a href="https://wa.me/+254758293706" target="_blank" rel="noopener noreferrer">
-                            <FaWhatsapp /> WhatsApp to book an employee and pay after service
-                        </a>
-                    </p>
-                    <p>
-                        <a href="https://wa.me/+254758293706" target="_blank" rel="noopener noreferrer">
-                            <FaWhatsapp /> WhatsApp for delivery services after payment
-                        </a>
-                    </p>
-                </div>
-                <button 
-        onClick={() => window.open('tel:+254758293706')}
-        className="call-button"
-    >
-        Call Us Now
-    </button>
             </Modal>
         </div>
     );

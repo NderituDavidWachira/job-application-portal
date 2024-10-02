@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Modal from 'react-modal'
+import Modal from 'react-modal';
 import './EmployeeDetail.css';
 import ContactForm from './ContactForm';
-
 
 Modal.setAppElement('#root'); // Required for accessibility
 
@@ -26,7 +25,8 @@ const EmployeeDetail = () => {
                     location: 'Limuru',
                     hiredTimes: 5,
                     comments: 'Very reliable and professional.',
-                    img: '/images/Mercy.jpg'
+                    img: '/images/Mercy.jpg',
+                    price: 1500 // Price in Ksh
                 },
                 {
                     name: 'Joy-Mama Fua',
@@ -35,7 +35,8 @@ const EmployeeDetail = () => {
                     location: 'Limuru',
                     hiredTimes: 3,
                     comments: 'Good worker, punctual.',
-                    img: '/images/Joy.jpg'
+                    img: '/images/Joy.jpg',
+                    price: 1200 // Price in Ksh
                 }
             ]
         },
@@ -52,7 +53,8 @@ const EmployeeDetail = () => {
                     location: 'Limuru',
                     hiredTimes: 5,
                     comments: 'Very reliable and professional.',
-                    img: '/images/eunice.jpg'
+                    img: '/images/eunice.jpg',
+                    price: 2000 // Price in Ksh
                 },
                 {
                     name: 'Cate Wairimu-Day Care',
@@ -61,7 +63,8 @@ const EmployeeDetail = () => {
                     location: 'Limuru',
                     hiredTimes: 3,
                     comments: 'Good worker, punctual.',
-                    img: '/images/cate.webp'
+                    img: '/images/cate.webp',
+                    price: 1800 // Price in Ksh
                 }
             ]
         }
@@ -96,6 +99,7 @@ const EmployeeDetail = () => {
                             <p>Location: {person.location}</p>
                             <p>Hired Times: {person.hiredTimes}</p>
                             <p>Comments: {person.comments}</p>
+                            <p><strong>Price: Ksh {person.price}</strong></p> {/* Bold price section */}
                         </div>
                         <button 
                             onClick={() => handleBookNow(person)}

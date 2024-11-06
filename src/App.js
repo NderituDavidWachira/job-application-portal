@@ -1,12 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './App.css';
 import EmployeeDetail from './EmployeeDetail';
+import About from './About';
+import Contact from './Contact';
+import Login from './Login';
 import EmployeeList from './EmployeeList';
-import About from './About';  // Import About page
-import Contact from './Contact';  // Import Contact page
 
 const employees = [
     { name: 'Mama Fua', img: '/images/mama fua.jpg', position: 'Cleaner', department: 'Household' },
@@ -31,16 +32,20 @@ const employees = [
 ];
 
 const App = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
     return (
         <Router>
             <div className="App">
                 <Header />
                 <main>
                     <Routes>
-                        <Route path="/" element={<EmployeeList employees={employees} />} />
+                        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+                        <Route path="/employeeList" element={isAuthenticated ? <EmployeeList employees={employees} /> : <Navigate to="/login" />} />
                         <Route path="/employee/:name" element={<EmployeeDetail employees={employees} />} />
-                        <Route path="/about" element={<About />} />  {/* About page route */}
-                        <Route path="/contact" element={<Contact />} />  {/* Contact page route */}
+                        <Route path="/about" element={<About />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/" element={<Navigate to={isAuthenticated ? "/employeeList" : "/login"} />} />
                     </Routes>
                 </main>
                 <Footer />

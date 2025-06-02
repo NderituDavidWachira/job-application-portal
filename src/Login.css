@@ -51,7 +51,6 @@
 
 .image-container {
     text-align: center;
-    margin-top: -170px;
 }
 
 .employee-image {
@@ -120,21 +119,10 @@
 @media only screen and (max-width: 768px) {
     .login-container {
         flex-direction: column;
-        width: 100%;
-        max-width: 1900px;
-        margin-top: 60px;
+        width: 120%;
+        max-width: 2700px;
         margin: 0 auto;
     }
-    .services-title {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    width: 100%;
-    font-size: 24px;
-    text-align: center;
-    font-weight: bold;
-    z-index: 2;
-}
 
     .form-side, .image-section {
         width: 100%;

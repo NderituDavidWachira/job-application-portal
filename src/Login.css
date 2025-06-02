@@ -28,16 +28,18 @@
     background-color: #f0f0f0;
     overflow: hidden;
     box-sizing: border-box;
+    padding-top: 20px;
 }
 
 .services-title {
-    position: absolute;
+    position: static;
     font-size: 24px;
     color: black;
     z-index: 2;
     text-align: center;
     width: 100%;
     font-weight: bold;
+    z-index: 1;
 }
 
 .image-slider {
@@ -51,6 +53,7 @@
 
 .image-container {
     text-align: center;
+    margin-top: -170px;
 }
 
 .employee-image {
@@ -123,6 +126,17 @@
         max-width: 2700px;
         margin: 0 auto;
     }
+    .services-title {
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    position: static;
+}
+.image-container {
+    text-align: center;
+    margin-top: 0px;
+}
 
     .form-side, .image-section {
         width: 100%;

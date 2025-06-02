@@ -32,7 +32,7 @@ const Login = ({ setIsAuthenticated }) => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentServiceIndex((prevIndex) => (prevIndex + 1) % services.length);
-        }, 3000);
+        }, 7000);
         return () => clearInterval(intervalId);
     }, []);
 

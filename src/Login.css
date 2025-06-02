@@ -121,9 +121,20 @@
     .login-container {
         flex-direction: column;
         width: 100%;
-        max-width: 1700px;
+        max-width: 1900px;
+        margin-top: 60px;
         margin: 0 auto;
     }
+    .services-title {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 2;
+}
 
     .form-side, .image-section {
         width: 100%;

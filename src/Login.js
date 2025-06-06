@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 const services = [
-    { name: 'Mama Fua', img: '/images/mama fua.jpg' },
+    { name: 'M', img: '/images/mama fua.jpg' },
     { name: 'Daycare Services', img: '/images/Day care.jpg' },
     { name: 'House Help', img: '/images/house.jpg' },
     { name: 'Car Hire', img: '/images/car.jpg' },

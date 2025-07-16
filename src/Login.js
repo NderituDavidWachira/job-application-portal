@@ -3,15 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-// Configure Axios instance for your Render backend
-const api = axios.create({
-  baseURL: 'https://mashinani-2.onrender.com/',
-  withCredentials: true, // Required for cookies/sessions
-  headers: {
-    'Content-Type': 'application/json',
-  }
-});
-
 const services = [
     { name: 'Mama Fua', img: '/images/mama fua.jpg' },
     { name: 'Daycare Services', img: '/images/Day care.jpg' },
@@ -37,6 +28,14 @@ const Login = ({ setIsAuthenticated }) => {
     const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
     const [isLoginMode, setIsLoginMode] = useState(true);
     const navigate = useNavigate();
+
+    // ✅ Add class to body ONLY inside component
+    useEffect(() => {
+        document.body.classList.add('login-page');
+        return () => {
+            document.body.classList.remove('login-page');
+        };
+    }, []);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -73,82 +72,29 @@ const Login = ({ setIsAuthenticated }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('/api/token/', {
-                username: formData.username,
-                password: formData.password
-            });
-            
-            // Store tokens
-            localStorage.setItem('access_token', response.data.access);
-            localStorage.setItem('refresh_token', response.data.refresh);
-            
-            // Set authorization header for future requests
-            api.defaults.headers.common['Authorization'] = `Bearer ${response.data.access}`;
-            
-            console.log('Logged in successfully');
+            const response = await axios.post('http://localhost:8000/api/token/request/', formData);
+            localStorage.setItem('token', response.data.access);
+            console.log('Logged in successfully. Token:', response.data.access);
             setIsAuthenticated(true);
             navigate('/employeeList');
         } catch (error) {
-            console.error('Login error:', error.response?.data);
-            alert(`Login failed: ${error.response?.data?.detail || 'Invalid credentials'}`);
+            console.error('Error logging in:', error.response?.data);
+            alert('Login failed: ' + error.response?.data.message);
         }
     };
 
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await api.post('/api/users/', {
-                username: signUpData.username,
-                password: signUpData.password,
-                first_name: signUpData.first_name,
-                last_name: signUpData.last_name,
-                phone_number: signUpData.phone_number,
-                user_type: signUpData.user_type
-            });
-            
+            const response = await axios.post('http://localhost:8000/api/users/', signUpData);
+            console.log('User signed up successfully:', response.data);
             alert('Signup successful! Please log in.');
             setIsLoginMode(true);
         } catch (error) {
-            console.error('Signup error:', error.response?.data);
-            alert(`Signup failed: ${JSON.stringify(error.response?.data) || 'Unknown error'}`);
+            console.error('Signup failed:', error.response?.data);
+            alert('Signup failed: ' + error.response?.data.message);
         }
     };
-
-    // Add request interceptor to include token
-    api.interceptors.request.use((config) => {
-        const token = localStorage.getItem('access_token');
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-        }
-        return config;
-    });
-
-    // Add response interceptor to handle token refresh
-    api.interceptors.response.use(
-        (response) => response,
-        async (error) => {
-            const originalRequest = error.config;
-            if (error.response.status === 401 && !originalRequest._retry) {
-                originalRequest._retry = true;
-                try {
-                    const refreshToken = localStorage.getItem('refresh_token');
-                    const response = await api.post('/api/token/refresh/', {
-                        refresh: refreshToken
-                    });
-                    localStorage.setItem('access_token', response.data.access);
-                    api.defaults.headers.common['Authorization'] = `Bearer ${response.data.access}`;
-                    return api(originalRequest);
-                } catch (err) {
-                    console.error('Refresh token failed:', err);
-                    localStorage.removeItem('access_token');
-                    localStorage.removeItem('refresh_token');
-                    setIsAuthenticated(false);
-                    navigate('/login');
-                }
-            }
-            return Promise.reject(error);
-        }
-    );
 
     return (
         <div className="page-container">
@@ -207,6 +153,7 @@ const Login = ({ setIsAuthenticated }) => {
                                         type="text"
                                         name="name"
                                         placeholder="Name"
+                                        value={signUpData.name}
                                         onChange={handleSignUpChange}
                                     />
                                 </div>
@@ -214,8 +161,9 @@ const Login = ({ setIsAuthenticated }) => {
                                     <label>Phone Number:</label>
                                     <input
                                         type="tel"
-                                        name="phone_number"
+                                        name="phone"
                                         placeholder="Phone Number"
+                                        value={signUpData.phone}
                                         onChange={handleSignUpChange}
                                     />
                                 </div>
@@ -225,6 +173,7 @@ const Login = ({ setIsAuthenticated }) => {
                                         type="text"
                                         name="username"
                                         placeholder="Username"
+                                        value={signUpData.username}
                                         onChange={handleSignUpChange}
                                         required
                                     />
@@ -235,6 +184,7 @@ const Login = ({ setIsAuthenticated }) => {
                                         type="password"
                                         name="password"
                                         placeholder="Password"
+                                        value={signUpData.password}
                                         onChange={handleSignUpChange}
                                         required
                                     />
@@ -243,15 +193,17 @@ const Login = ({ setIsAuthenticated }) => {
                                     <label>How do you intend to use our app?</label>
                                     <select
                                         name="user_type"
+                                        value={signUpData.user_type}
                                         onChange={handleSignUpChange}
-                                        defaultValue="employee"
                                     >
-                                        <option value="employee">Employee</option>
+                                        <option value="">Select</option>
                                         <option value="employer">Employer</option>
+                                        <option value="employee">Employee</option>
                                     </select>
                                 </div>
                                 <button type="submit" className="signup-button">Sign Up</button>
                             </form>
+
                             <p>
                                 Already have an account?{' '}
                                 <button onClick={() => setIsLoginMode(true)} className="toggle-button">

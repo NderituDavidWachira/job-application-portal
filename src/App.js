@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './App.css';
+import Landing from './Landing';
 import EmployeeDetail from './EmployeeDetail';
 import About from './About';
 import Contact from './Contact';
@@ -37,18 +38,53 @@ const App = () => {
     return (
         <Router>
             <div className="App">
-                <Header />
+                {/* Header - show on all pages except login */}
+                <Routes>
+                    <Route path="/login" element={null} />
+                    <Route path="*" element={<Header />} />
+                </Routes>
+
                 <main>
                     <Routes>
+                        {/* Public routes */}
+                        <Route path="/" element={<Landing />} />
                         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-                        <Route path="/employeeList" element={isAuthenticated ? <EmployeeList employees={employees} /> : <Navigate to="/login" />} />
-                        <Route path="/employee/:name" element={<EmployeeDetail employees={employees} />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
-                        <Route path="/" element={<Navigate to={isAuthenticated ? "/employeeList" : "/login"} />} />
+
+                        {/* Protected routes */}
+                        <Route 
+                            path="/employeeList" 
+                            element={
+                                isAuthenticated ? 
+                                <EmployeeList employees={employees} /> : 
+                                <Navigate to="/login" replace />
+                            } 
+                        />
+                        <Route 
+                            path="/employee/:name" 
+                            element={
+                                isAuthenticated ? 
+                                <EmployeeDetail employees={employees} /> : 
+                                <Navigate to="/login" replace />
+                            } 
+                        />
+
+                        {/* Redirect /home based on login */}
+                        <Route 
+                            path="/home" 
+                            element={
+                                <Navigate to={isAuthenticated ? "/employeeList" : "/"} replace />
+                            } 
+                        />
                     </Routes>
                 </main>
-                <Footer />
+
+                {/* Footer - show on all pages except login */}
+                <Routes>
+                    <Route path="/login" element={null} />
+                    <Route path="*" element={<Footer />} />
+                </Routes>
             </div>
         </Router>
     );

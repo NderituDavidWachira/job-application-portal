@@ -18,22 +18,23 @@ const Footer = () => {
 
 const styles = {
     footer: {
-        padding: '5px 10px', 
+        padding: '5px 5px', 
         backgroundColor: 'grey', 
         fontSize: '14px', 
+        height: '70px',
         textAlign: 'center',
         position: 'fixed',
         bottom: '0',
         width: '100%',
-        boxSizing: 'border-box', // Ensure padding is included in the width
-        boxShadow: '0px -1px 5px rgba(0, 0, 0, 0.1)', // Subtle shadow for separation
+        boxSizing: 'border-box', 
+        boxShadow: '0px -1px 5px rgba(0, 0, 0, 0.1)', 
     },
     text: {
-        margin: '5px 0', // Reduced margin
-        color: 'black', // Dark text color
+        margin: '0px', 
+        color: 'black', 
     },
     link: {
-        color: '#25D366', // WhatsApp color
+        color: '#25D366', 
         textDecoration: 'none',
     },
 };

@@ -5,7 +5,7 @@ import './Header.css';
 const Header = () => {
     return (
         <header className="header">
-            <h1 className="header-title">Job Application Portal</h1>
+            <h1 className="header-title">Mashinani</h1>
             <nav className="nav">
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>

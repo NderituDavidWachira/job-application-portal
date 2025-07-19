@@ -37,10 +37,10 @@ const Landing = () => {
       frame++;
       const progress = easeOutQuad(frame / totalFrames);
       setCount({
-        workers: Math.floor(10000 * progress),
+        workers: Math.floor(1000 * progress),
         repeat: Math.floor(85 * progress),
         response: Math.floor(24 * progress),
-        rating: (progress * 4.9).toFixed(1),
+        rating: (progress * 8.9).toFixed(1),
       });
       if (frame === totalFrames) clearInterval(counter);
     }, frameDuration);
@@ -76,7 +76,7 @@ const Landing = () => {
       {/* Hero Section - Always Visible */}
       <section className="hero-section">
         <div className="hero-content fade-in-left is-visible">
-          <h1 className="black-title">Connecting Skilled Workers with Local Opportunities</h1>
+          <h1 className="black-title">Connecting Passionate Workers with Strategic Local Opportunities</h1>
           <p className="hero-subtitle">
             Find trusted professionals or get hired for your skills.
             Join thousands of workers and clients in our growing community.
@@ -87,7 +87,7 @@ const Landing = () => {
           </div>
         </div>
         <div className="hero-image-container fade-in-right is-visible">
-          <img src="/images/Day care.jpg" alt="Skilled workers smiling" className="hero-image" />
+          <img src="/images/home.jpg" alt="Skilled workers smiling" className="hero-image" />
         </div>
       </section>
 
@@ -114,7 +114,7 @@ const Landing = () => {
         <h2>Popular Service Categories</h2>
         <div className="categories-grid">
           {serviceCategories.map((category, index) => (
-            <div key={index} className="category-card" onClick={() => navigate(category.path)}>
+            <div key={index} className="category-card" onClick={() => navigate('/login')}>
               <span className="category-icon">{category.icon}</span>
               <h3>{category.name}</h3>
             </div>
@@ -131,7 +131,7 @@ const Landing = () => {
               <p>"This platform changed my life. I now have a steady stream of clients."</p>
             </div>
             <div className="testimonial-author">
-              <img src="/images/Day care.jpg" alt="Sarah K." />
+              <img src="/images/worker.jpg" alt="Sarah K." />
               <div><h4>Sarah K.</h4><p>Professional Cleaner</p></div>
             </div>
           </div>
@@ -140,7 +140,7 @@ const Landing = () => {
               <p>"I found a great childcare provider here. Life has been much easier!"</p>
             </div>
             <div className="testimonial-author">
-              <img src="/images/Day care.jpg" alt="James M." />
+              <img src="/images/client.webp" alt="James M." />
               <div><h4>James M.</h4><p>Satisfied Client</p></div>
             </div>
           </div>

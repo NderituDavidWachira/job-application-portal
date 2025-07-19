@@ -31,9 +31,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ============================== */
-/*           HERO SECTION         */
-/* ============================== */
 .hero-section {
   display: flex;
   align-items: center;
@@ -67,6 +64,7 @@ body {
   color: black !important;
   background: none !important;
   -webkit-text-fill-color: initial !important;
+  font-size: 34px !important;
 }
 
 .hero-subtitle {
@@ -129,7 +127,7 @@ body {
 .hero-image {
   width: 100%;
   max-width: 600px;
-  border-radius: 16px;
+  border-radius: 96px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
   transform: perspective(1000px) rotateY(-10deg);
   transition: transform 0.5s ease;
@@ -141,9 +139,6 @@ body {
   transform: perspective(1000px) rotateY(-5deg);
 }
 
-/* ============================== */
-/*           STATS SECTION        */
-/* ============================== */
 .stats-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -273,9 +268,6 @@ body {
   margin-bottom: 1rem;
 }
 
-/* ============================== */
-/*          TESTIMONIALS          */
-/* ============================== */
 .testimonials-section {
   padding: 5rem 2rem;
   background-color: var(--light);
@@ -335,10 +327,6 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
-
-/* ============================== */
-/*             CTA                */
-/* ============================== */
 .final-cta {
   padding: 5rem 2rem;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -360,10 +348,6 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
-/* ============================== */
-/*        ANIMATIONS FIXED        */
-/* ============================== */
 .fade-in,
 .fade-in-left,
 .fade-in-right {
@@ -412,9 +396,7 @@ body {
 .categories-grid .category-card:nth-child(odd) { transition-delay: 0.3s; }
 .categories-grid .category-card:nth-child(even) { transition-delay: 0.5s; }
 
-/* ============================== */
-/*        RESPONSIVENESS          */
-/* ============================== */
+
 @media (max-width: 1024px) {
   .hero-section {
     flex-direction: column;
@@ -463,3 +445,10 @@ body {
     transition-duration: 0.6s !important;
   }
 }
+@media (max-width: 480px) {
+  .landing-page {
+    width: 100%;
+    padding: 0 1rem; 
+  }
+}
+

@@ -415,6 +415,7 @@ body {
 @media (max-width: 480px) {
   
 .landing-page {
+  display: flex;
   width: 100vw;
   margin: 0 auto;
   overflow-x: hidden;

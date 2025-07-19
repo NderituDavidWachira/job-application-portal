@@ -415,7 +415,8 @@ body {
 @media (max-width: 480px) { 
 .landing-page {
   margin-left: -70px;
-  overflow-x: none
+  overflow-x: none;
+  margin-right: 0px;
 }
   .hero-cta {
     flex-direction: column;

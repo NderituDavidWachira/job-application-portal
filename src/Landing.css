@@ -423,6 +423,11 @@ body {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    width: 100vw !important;
+    margin-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
     overflow-x: hidden;
   }
 

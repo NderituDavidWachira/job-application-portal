@@ -431,6 +431,8 @@ body {
     text-align: center;
     width: 100% !important;
     margin-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .hero-content,

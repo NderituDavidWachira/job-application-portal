@@ -447,8 +447,9 @@ body {
 }
 @media (max-width: 480px) {
   .landing-page {
-    width: 100%;
-    padding: 0 1rem; 
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1rem;
   }
 }
-

@@ -26,7 +26,7 @@ body {
 }
 
 .landing-page {
-  max-width: 1400px;
+  width: 100vw;
   margin: 0 auto;
   overflow-x: hidden;
 }
@@ -420,26 +420,17 @@ body {
 
 @media (max-width: 480px) {
   .landing-page {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    width: 100vw !important;
-    margin-top: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    box-sizing: border-box;
-    overflow-x: hidden;
+     width: 100vw;
+     margin: 0 auto;
+     overflow-x: hidden;
   }
 
   .hero-section {
-  flex-direction: column;
-  text-align: center;
-  width: 100vw !important;
-  margin-top: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  box-sizing: border-box;
-}
+    flex-direction: column;
+    text-align: center;
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
 
   .hero-content,
   .hero-image-container {

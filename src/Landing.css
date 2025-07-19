@@ -416,8 +416,7 @@ body {
   
 .landing-page {
   display: flex;
-  width: 100vw;
-  margin: 0 auto;
+  margin-left: 0px;
   overflow-x: hidden;
 }
   .hero-cta {

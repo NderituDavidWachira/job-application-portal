@@ -414,7 +414,7 @@ body {
 
 @media (max-width: 480px) { 
 .landing-page {
-  margin-left: -250px;
+  margin-left: -50px;
   overflow-x: none;
   width: 240px;
 }

@@ -412,12 +412,12 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  
+@media (max-width: 480px) { 
 .landing-page {
   display: flex;
   margin-left: 0px;
   overflow-x: hidden;
+  width: 540px;
 }
   .hero-cta {
     flex-direction: column;

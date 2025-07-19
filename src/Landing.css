@@ -26,7 +26,6 @@ body {
 }
 
 .landing-page {
-  width: 100vw;
   margin: 0 auto;
   overflow-x: hidden;
 }
@@ -127,7 +126,7 @@ body {
 .hero-image {
   width: 100%;
   max-width: 600px;
-  border-radius: 96px;
+  border-radius: 76px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
   transform: perspective(1000px) rotateY(-10deg);
   transition: transform 0.5s ease;
@@ -159,7 +158,6 @@ body {
   font-size: 1rem;
 }
 
-/* HOW IT WORKS */
 .how-it-works {
   padding: 5rem 2rem;
   background-color: var(--light);
@@ -218,8 +216,6 @@ body {
   color: var(--text-light);
   line-height: 1.6;
 }
-
-/* CATEGORIES */
 .categories-section {
   padding: 5rem 2rem;
   background-color: white;
@@ -263,7 +259,6 @@ body {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-
 .testimonials-section {
   padding: 5rem 2rem;
   background-color: var(--light);
@@ -346,7 +341,6 @@ body {
   margin-right: auto;
 }
 
-/* Animations */
 .fade-in,
 .fade-in-left,
 .fade-in-right {
@@ -395,7 +389,7 @@ body {
 .categories-grid .category-card:nth-child(odd) { transition-delay: 0.3s; }
 .categories-grid .category-card:nth-child(even) { transition-delay: 0.5s; }
 
-/* Responsive Queries */
+
 @media (max-width: 1024px) {
   .hero-section {
     flex-direction: column;
@@ -419,36 +413,15 @@ body {
 }
 
 @media (max-width: 480px) {
-  .landing-page {
-     width: 100vw;
-     margin: 0 auto;
-     overflow-x: hidden;
-  }
-
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-    width: 100% !important;
-    margin-top: 0 !important;
-  }
-
-  .hero-content,
-  .hero-image-container {
-    width: 100% !important;
-  }
-
-  .hero-image {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 32px;
-    transform: none;
-    aspect-ratio: auto;
-  }
-
+  
+.landing-page {
+  width: 100vw;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
   .hero-cta {
     flex-direction: column;
     align-items: center;
-    width: 100%;
   }
 
   .cta-primary,
@@ -464,5 +437,10 @@ body {
   .final-cta {
     margin: 3rem 1rem;
     padding: 3rem 1rem;
+  }
+
+  .hero-content,
+  .hero-image-container {
+    transition-duration: 0.6s !important;
   }
 }
